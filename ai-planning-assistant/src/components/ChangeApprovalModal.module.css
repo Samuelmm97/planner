@@ -1,0 +1,502 @@
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal Header */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0 24px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px;
+  border-radius: 4px;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.closeButton:hover {
+  color: #374151;
+  background-color: #f3f4f6;
+}
+
+/* Enhancement Info */
+.enhancementInfo {
+  padding: 0 24px;
+  margin-bottom: 24px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin: 0 24px 24px 24px;
+}
+
+.enhancementInfo > div {
+  margin-bottom: 8px;
+}
+
+.enhancementInfo > div:last-child {
+  margin-bottom: 0;
+}
+
+.enhancementType {
+  color: #374151;
+}
+
+.enhancementReasoning {
+  color: #4b5563;
+  font-style: italic;
+}
+
+.enhancementConfidence {
+  color: #059669;
+  font-weight: 500;
+}
+
+.enhancementDate {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Changes Section */
+.changesSection {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+
+.changesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.changesHeader h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.selectionControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selectButton {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.selectButton:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.selectedCount {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.changesList {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+}
+
+/* Change Item */
+.changeItem {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px;
+  transition: background-color 0.2s;
+}
+
+.changeItem:last-child {
+  border-bottom: none;
+}
+
+.changeItem:hover {
+  background-color: #f9fafb;
+}
+
+.changeItem.selected {
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.changeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.checkbox {
+  margin-top: 2px;
+}
+
+.operationIcon {
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+.changeDescription {
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.changeActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence {
+  font-size: 0.75rem;
+  color: #059669;
+  background: #d1fae5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.editButton:hover {
+  background-color: #f3f4f6;
+}
+
+/* Change Details */
+.changeDetails {
+  margin-left: 24px;
+}
+
+.targetPath {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 12px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.diffSection {
+  margin-bottom: 12px;
+}
+
+.diffSection:last-child {
+  margin-bottom: 0;
+}
+
+.oldValue,
+.newValue {
+  margin-bottom: 8px;
+}
+
+.oldValue strong {
+  color: #dc2626;
+}
+
+.newValue strong {
+  color: #059669;
+}
+
+.valueDisplay {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 4px;
+  font-size: 0.875rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Edit Section */
+.editSection {
+  margin-top: 8px;
+}
+
+.editTextarea {
+  width: 100%;
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.875rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.editTextarea:focus {
+  outline: none;
+  border-color: #1d4ed8;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.saveButton {
+  background: #059669;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.saveButton:hover {
+  background: #047857;
+}
+
+.cancelButton {
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background: #4b5563;
+}
+
+/* Feedback Section */
+.feedbackSection {
+  padding: 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.feedbackLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.feedbackTextarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.875rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.feedbackTextarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.feedbackTextarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Modal Actions */
+.modalActions {
+  display: flex;
+  gap: 12px;
+  padding: 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.approveButton {
+  background: #059669;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex: 1;
+}
+
+.approveButton:hover:not(:disabled) {
+  background: #047857;
+}
+
+.approveButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.rejectButton {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex: 1;
+}
+
+.rejectButton:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.rejectButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.modalActions .cancelButton {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.modalActions .cancelButton:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .modalOverlay {
+    padding: 10px;
+  }
+
+  .modalContent {
+    max-height: 95vh;
+  }
+
+  .modalHeader {
+    padding: 16px 16px 0 16px;
+    margin-bottom: 16px;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+
+  .enhancementInfo {
+    margin: 0 16px 16px 16px;
+    padding: 12px 16px;
+  }
+
+  .changesSection {
+    padding: 0 16px;
+  }
+
+  .changeItem {
+    padding: 12px;
+  }
+
+  .changeHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .selectionControls {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .modalActions {
+    padding: 16px;
+    flex-direction: column;
+  }
+
+  .feedbackSection {
+    padding: 16px;
+  }
+}
