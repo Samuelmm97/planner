@@ -1,0 +1,268 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.textarea {
+  flex: 1;
+  min-height: 120px;
+  padding: 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+}
+
+.textarea.error {
+  border-color: #dc3545;
+}
+
+.textarea.error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.textarea.processing {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.textarea:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.voiceButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  z-index: 1;
+}
+
+.voiceButton:hover:not(:disabled) {
+  background-color: #e9ecef;
+  transform: scale(1.05);
+}
+
+.voiceButton:active {
+  transform: scale(0.95);
+}
+
+.voiceButton.listening {
+  background-color: #dc3545;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.voiceButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 16px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.processingIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #007acc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e1e5e9;
+  border-top: 2px solid #007acc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.autoSaveIndicator {
+  color: #28a745;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.listeningIndicator {
+  color: #dc3545;
+  font-size: 14px;
+  font-weight: 500;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.characterCount {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 80px;
+  text-align: right;
+}
+
+.characterCount.warning {
+  color: #ffc107;
+}
+
+.characterCount.error {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.submitButton {
+  padding: 12px 24px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-width: 120px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.errorMessage {
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .actions {
+    justify-content: space-between;
+  }
+  
+  .textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .voiceButton {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .textarea {
+    border-width: 3px;
+  }
+  
+  .textarea:focus {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .voiceButton.listening,
+  .listeningIndicator {
+    animation: none;
+  }
+  
+  .submitButton:hover:not(:disabled) {
+    transform: none;
+  }
+}
