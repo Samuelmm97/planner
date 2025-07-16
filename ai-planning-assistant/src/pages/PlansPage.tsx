@@ -1,8 +1,10 @@
 import React from 'react';
-import PlanStorageDemo from '../components/PlanStorageDemo';
+import { PlanCanvas } from '../components';
+
+const CURRENT_USER_ID = 'demo-user';
 
 const PlansPage: React.FC = () => {
-  return <PlanStorageDemo />;
+  return <PlanCanvas userId={CURRENT_USER_ID} />;
 };
 
 export default PlansPage;

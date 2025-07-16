@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Task Completion Git Push",
+  "description": "Automatically pushes changes to GitHub when a task is marked as completed or finished",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".kiro/specs",
+      "/Users/shaq/Documents/Github/planner/.kiro/specs/ai-planning-assistant/tasks.md",
+      "**/tasks.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A task has been updated. Please commit all current changes and push them to the GitHub repository. Include a meaningful commit message that describes what task was completed."
+  }
+}
